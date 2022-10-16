@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ToastProvider } from 'react-toast-notifications';
+
+//routes
+import AppRoutes from './routes'
+//configs
+import 'configs/firebase-config' // importing firebase config to intialize
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ToastProvider autoDismissTimeout={5000} transitionDuration={220}>
+      <AppRoutes />
+    </ToastProvider>
   );
 }
 
