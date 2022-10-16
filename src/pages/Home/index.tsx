@@ -12,7 +12,7 @@ import AppButton from 'components/common/Button'
 
 const Home = () => {
     const navigate = useNavigate()
-    const { logout } = useContext(AuthState) as TAuthContext
+    const { state, logout } = useContext(AuthState) as TAuthContext
 
     const handleLogout = () => {
         navigate('/login')
@@ -21,7 +21,7 @@ const Home = () => {
 
     return (
         <Box display='flex' flexDirection='column' height='100vh' alignItems='center' justifyContent='center'>
-            <h3>Hi there, Have a great day ahead!</h3>
+            <h3>Hi {state.firebaseUser?.displayName}, Have a great day ahead!</h3>
             <AppButton title="Log Out" onClick={handleLogout} />
         </Box>
     )

@@ -16,7 +16,7 @@ import AppButton from 'components/common/Button';
 const Login = () => {
     const navigate = useNavigate()
     const { addToast } = useToasts();
-    const { setToken } = useContext(AuthState) as TAuthContext
+    const { setToken, saveFirebaseUser } = useContext(AuthState) as TAuthContext
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -27,6 +27,7 @@ const Login = () => {
         try {
             const response = await signInWithEmailAndPassword(getAuth(), email, password)
             setToken(response.user.refreshToken)
+            saveFirebaseUser(response.user)
             navigate('/home')
         } catch (error) {
             const errorCode = (error as FirebaseError).code
