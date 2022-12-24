@@ -7,9 +7,7 @@ import reportWebVitals from './reportWebVitals';
 //services
 import AuthProvider from 'services/auth';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <AuthProvider>
     <App />
